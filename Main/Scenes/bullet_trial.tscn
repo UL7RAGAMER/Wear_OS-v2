@@ -1,0 +1,66 @@
+[gd_scene load_steps=14 format=3 uid="uid://8kwb3hlubfy5"]
+
+[ext_resource type="Script" path="res://Main/Scripts/bullet_trial.gd" id="1_4t88k"]
+[ext_resource type="Shader" path="res://GPUTrail-main/shaders/trail.gdshader" id="2_150jg"]
+[ext_resource type="Shader" path="res://GPUTrail-main/shaders/trail_draw_pass.gdshader" id="3_moel0"]
+[ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://GPUTrail-main/defaults/texture.tres" id="4_nwja4"]
+[ext_resource type="Texture2D" uid="uid://ct31fhxvcragr" path="res://GPUTrail-main/defaults/curve.tres" id="5_h16i5"]
+[ext_resource type="Script" path="res://GPUTrail-main/GPUTrail3D.gd" id="6_2ksrr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_glawc"]
+shader = ExtResource("2_150jg")
+
+[sub_resource type="Gradient" id="Gradient_iaumj"]
+colors = PackedColorArray(1, 0.933333, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_llu5r"]
+gradient = SubResource("Gradient_iaumj")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0cti5"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_moel0")
+shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/flags = 40
+shader_parameter/tex = SubResource("GradientTexture1D_llu5r")
+shader_parameter/color_ramp = ExtResource("4_nwja4")
+shader_parameter/curve = ExtResource("5_h16i5")
+
+[sub_resource type="QuadMesh" id="QuadMesh_5d1jn"]
+material = SubResource("ShaderMaterial_0cti5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r3odb"]
+albedo_color = Color(1, 0.788177, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.495748, 0, 1)
+emission_energy_multiplier = 2.23
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ildpa"]
+material = SubResource("StandardMaterial3D_r3odb")
+radius = 0.04
+
+[node name="Node3D" type="Node3D" node_paths=PackedStringArray("_trail_mesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00166845, -2.38419e-07, 3.99123)
+visible = false
+script = ExtResource("1_4t88k")
+_trail_mesh = NodePath("MeshInstance3D")
+
+[node name="GPUTrail3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.03656)
+visible = false
+amount = 100
+lifetime = 100.0
+explosiveness = 1.0
+fixed_fps = 0
+process_material = SubResource("ShaderMaterial_glawc")
+draw_pass_1 = SubResource("QuadMesh_5d1jn")
+script = ExtResource("6_2ksrr")
+texture = SubResource("GradientTexture1D_llu5r")
+color_ramp = ExtResource("4_nwja4")
+curve = ExtResource("5_h16i5")
+_defaults_have_been_set = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 0.001, 0, 5.135)
+visible = false
+mesh = SubResource("CapsuleMesh_ildpa")

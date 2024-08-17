@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://wbvo7r57tm3k"]
+
+[ext_resource type="PackedScene" uid="uid://biwwomf3ggs2y" path="res://Main/Scenes/char.tscn" id="1_yiyax"]
+[ext_resource type="Curve3D" uid="uid://cyajtr0ws1fwk" path="res://Main/Scenes/sqaure.tres" id="2_xg2nl"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_f3ct1"]
+vertices = PackedVector3Array(2.25, 1, 4.5, 2.25, 1, 3.5, 0.75, 1, 3.25, -3, 1, 4.5, 0.75, 1, -2.5, 2.25, 1, -2.75, 2.25, 1, -4.5, -3, 1, -4.5, 3.75, 1, 3.25, 6, 1, 4.5, 3.75, 1, -2.5, 6, 1, -4.5, 1.75, 1.75, -1.75, 1.75, 1.75, 2.5, 2.75, 1.75, 2.5, 2.75, 1.75, -1.75)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(2, 3, 4), PackedInt32Array(4, 3, 7), PackedInt32Array(1, 8, 0), PackedInt32Array(0, 8, 9), PackedInt32Array(5, 6, 10), PackedInt32Array(10, 6, 11), PackedInt32Array(8, 10, 9), PackedInt32Array(9, 10, 11), PackedInt32Array(15, 14, 12), PackedInt32Array(12, 14, 13)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d6pl5"]
+albedo_color = Color(0.27, 0, 0, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Enemy" parent="." instance=ExtResource("1_yiyax")]
+transform = Transform3D(1.90133, 0, 41.204, 0, 41.248, 0, -41.2042, 0, 1.90135, 0.136199, 0.891237, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_f3ct1")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+material_override = SubResource("StandardMaterial3D_d6pl5")
+use_collision = true
+size = Vector3(10, 1, 10)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.33088, 1.00037, 0.269404)
+use_collision = true
+size = Vector3(1.79108, 0.5, 5)
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.23164, 0)
+curve = ExtResource("2_xg2nl")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-3.92631e-08, 0.439516, -0.898235, 1.92118e-08, 0.898235, 0.439516, 1, -1.77636e-15, -4.37114e-08, -3.5067, 5.59247, 0.370797)
+current = true
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(1.91069e-15, 1, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 1, 0, -4.37114e-08, 1.27262, 7.33926, -0.0239245)
+current = true

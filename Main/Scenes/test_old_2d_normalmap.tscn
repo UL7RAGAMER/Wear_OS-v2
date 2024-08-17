@@ -1,0 +1,73 @@
+[gd_scene load_steps=12 format=3 uid="uid://culreaft23d4j"]
+
+[ext_resource type="Script" path="res://Main/Scripts/camera_2d.gd" id="1_4oydy"]
+[ext_resource type="Script" path="res://Main/Scripts/character_body_2d.gd" id="2_7h200"]
+[ext_resource type="Texture2D" uid="uid://c5dr21mh63ior" path="res://Assets/2D/CrossHair.png" id="3_gldpj"]
+[ext_resource type="Shader" path="res://shader/test.gdshader" id="5_ti3hy"]
+[ext_resource type="Texture2D" uid="uid://qatxl0y3u1ps" path="res://Assets/2D/Buildings.png" id="6_qsgcv"]
+[ext_resource type="Texture2D" uid="uid://dbjmpstk6bsmd" path="res://Assets/2D/Buildings_n.png" id="7_ownpf"]
+[ext_resource type="Texture2D" uid="uid://b4koc24ly0or3" path="res://Assets/2D/Buildings_s.png" id="8_p35xi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hqv1s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iesoi"]
+resource_local_to_scene = true
+shader = ExtResource("5_ti3hy")
+shader_parameter/toon = true
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_p21oh"]
+diffuse_texture = ExtResource("6_qsgcv")
+normal_texture = ExtResource("7_ownpf")
+specular_texture = ExtResource("8_p35xi")
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5ll3u"]
+cull_mode = 1
+polygon = PackedVector2Array(33.5709, -17.325, 33.1419, -2.04783, 36.5091, -3.84976, 50.5705, -17.6932)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="WearOS_Camera" type="Camera2D" parent="."]
+position = Vector2(0.00579834, 0.0742035)
+zoom = Vector2(1.32, 1.32)
+editor_draw_screen = false
+script = ExtResource("1_4oydy")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(0.00579834, 0.0742035)
+script = ExtResource("2_7h200")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, -83.1916)
+scale = Vector2(1.52651, 1.52651)
+shape = SubResource("CircleShape2D_hqv1s")
+
+[node name="Icon" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(0.148809, -83.1338)
+scale = Vector2(1.36346, 1.36346)
+texture = ExtResource("3_gldpj")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -39.3273
+offset_top = -155.256
+offset_right = 45.6727
+offset_bottom = -132.256
+grow_horizontal = 2
+grow_vertical = 2
+text = "60 Andriod"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_iesoi")
+position = Vector2(19.3514, 2.50852)
+texture = SubResource("CanvasTexture_p21oh")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(-216.447, 163.865)
+scale = Vector2(2.19828, 2.19828)
+occluder = SubResource("OccluderPolygon2D_5ll3u")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(-17.9298, 6.36779)
+rotation = -15.7465
