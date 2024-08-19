@@ -18,6 +18,7 @@ run/max_fps=30
 [autoload]
 
 Screen="*res://Main/Android_connector.gd"
+Score="*res://node_3d.gd"
 
 [display]
 

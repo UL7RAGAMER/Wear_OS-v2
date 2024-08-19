@@ -33,7 +33,8 @@ func next_point():
 	navigation_agent_3d.set_target_position(ps)
 	n+=1
 func _on_area_3d_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
-	print('asdkajhsdklaj')
+	Score.current_score+=1
+	queue_free()
 	pass # Replace with function body.
 
 

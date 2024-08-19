@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://Main/Scripts/camera_work.gd" id="1_xjy3m"]
 [ext_resource type="Script" path="res://Main/Scripts/camera_2d.gd" id="3_e0ffb"]
 [ext_resource type="Script" path="res://Main/Scripts/gun.gd" id="3_ew13m"]
-[ext_resource type="PackedScene" uid="uid://biwwomf3ggs2y" path="res://Main/Scenes/char.tscn" id="3_n8wd1"]
 [ext_resource type="PackedScene" uid="uid://dnpqmw3bbd55j" path="res://Main/Scenes/gun.tscn" id="3_urjqg"]
 [ext_resource type="Script" path="res://Main/Scenes/spawner.gd" id="4_xc0je"]
 [ext_resource type="PackedScene" uid="uid://cb7tseclovjt3" path="res://Main/Scenes/bullet.tscn" id="5_eiv2m"]
@@ -17,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cgl8qo2moxcs8" path="res://Assets/2D/ammo_empty.png" id="9_84k6i"]
 [ext_resource type="Texture2D" uid="uid://dcjmrsyo1swlr" path="res://Assets/2D/ammo.png" id="10_mpran"]
 [ext_resource type="Script" path="res://Main/Scenes/marker_3d.gd" id="10_qh2ev"]
+[ext_resource type="Script" path="res://Main/Scenes/score.gd" id="13_hrl81"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qwr61"]
 resource_name = "PixelArt_Simple"
@@ -30,7 +30,7 @@ emission = Color(1, 1, 1, 1)
 resource_name = "Material"
 transparency = 1
 cull_mode = 2
-albedo_color = Color(0, 0.833333, 1, 0.811765)
+albedo_color = Color(0, 0.833333, 1, 0.431373)
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ad0m5"]
@@ -102,6 +102,7 @@ albedo_color = Color(1, 0.524906, 0.465086, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_fk0fv"]
 material = SubResource("StandardMaterial3D_wbreu")
+size = Vector3(1, 1.362, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_phmlw"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
@@ -396,13 +397,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00801, 1.52303, 70.797)
 transform = Transform3D(50.74, 0, 0, 0, 50.74, 0, 0, 0, 50.74, -71.426, -34.8553, -527.144)
 visible = false
 
-[node name="Enemy" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("path3d") instance=ExtResource("3_n8wd1")]
-transform = Transform3D(41.248, 0, 0, 0, 41.248, 0, 0, 0, 41.248, 2.43012, 4.07993, 1.10556)
-path3d = [NodePath("../Building/Floors/NavigationRegion3D/Floor2/Square/Marker3D"), NodePath("../Building/Floors/NavigationRegion3D/Floor2/Square/Marker3D2"), NodePath("../Building/Floors/NavigationRegion3D/Floor2/Square/Marker3D3"), NodePath("../Building/Floors/NavigationRegion3D/Floor2/Square/Marker3D4")]
-
 [node name="Building" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(3.45629, 0, 0, 0, 3.45629, 0, 0, 0, 3.45629, 0, 0, 0)
-layers = 0
+layers = 2
 mesh = SubResource("ArrayMesh_vmc6c")
 skeleton = NodePath("")
 
@@ -577,6 +574,19 @@ fill_mode = 3
 texture_under = ExtResource("9_84k6i")
 texture_progress = ExtResource("10_mpran")
 
+[node name="Score" type="Label" parent="SubViewportContainer/Sniper ui"]
+offset_left = 148.664
+offset_top = 3.732
+offset_right = 2128.66
+offset_bottom = 1578.73
+scale = Vector2(0.162591, 0.162591)
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 141
+text = "145"
+script = ExtResource("13_hrl81")
+
 [node name="SubViewport2" type="SubViewport" parent="SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
@@ -606,9 +616,6 @@ unique_name_in_owner = true
 transform = Transform3D(-0.0419681, 0, 1.06397e-07, 0, 0.041968, 0, -1.06397e-07, 0, -0.0419681, -0.252, -0.104, 9.417)
 script = ExtResource("3_ew13m")
 
-[node name="group1_001" parent="SubViewportContainer/SubViewport2/Marker3D/Gun/Operator valorent4" index="1"]
-transform = Transform3D(0.00998808, 0.000487999, -2.13311e-11, 0, -4.37114e-10, -0.01, -0.000487999, 0.00998808, -4.36593e-10, 0, 0, 0)
-
 [node name="Mag_002" parent="SubViewportContainer/SubViewport2/Marker3D/Gun/Operator valorent4/group1_001" index="2"]
 transform = Transform3D(99.9995, -0.155819, 0.291039, -0.311043, -14.9324, 98.8784, -0.110613, -98.8784, -14.9329, -22.0441, -304.993, 46.6268)
 
@@ -617,6 +624,7 @@ environment = SubResource("Environment_m1yq7")
 camera_attributes = SubResource("CameraAttributesPractical_en054")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = 148.664
 offset_top = 3.732
 offset_right = 2128.66

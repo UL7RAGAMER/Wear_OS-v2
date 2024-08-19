@@ -14,7 +14,7 @@ func _input(event: InputEvent) -> void:
 	sniper_ui()
 	
 func shoot(event:InputEventScreenTouch):
-		ammo-=0
+		ammo-=1
 		$"../../../Sniper ui/Ammo".value = ammo
 		var b = bullet.instantiate() as Area3D
 		$"../../../SubViewport/Bullets".add_child(b)
