@@ -17,17 +17,17 @@ func _process(delta: float) -> void:
 
 
 func rotaing_camera(deg:int) -> void:
-	if Input.is_action_just_released("left") and !(gun.scoped):
+	if Input.is_action_just_released("left") :
 		rotation_degrees.y+=deg
-	elif Input.is_action_just_released("right") and !(gun.scoped):
+	elif Input.is_action_just_released("right") :
 		rotation_degrees.y-=deg
 
 	pass
 func lock_camera() -> void:
-	if position.y>11:
-		position.y = 11
-	elif position.y<=0:
-		position.y =0
+	if position.y>15:
+		position.y = 15
+	elif position.y<=3.4:
+		position.y =3.4
 	pass
 	
 

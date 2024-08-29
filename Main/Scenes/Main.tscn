@@ -1,12 +1,13 @@
-[gd_scene load_steps=40 format=4 uid="uid://j86dvdyviohc"]
+[gd_scene load_steps=41 format=4 uid="uid://j86dvdyviohc"]
 
 [ext_resource type="Script" path="res://Main/Scripts/camera_work.gd" id="1_xjy3m"]
 [ext_resource type="Script" path="res://Main/Scripts/camera_2d.gd" id="3_e0ffb"]
 [ext_resource type="Script" path="res://Main/Scripts/gun.gd" id="3_ew13m"]
 [ext_resource type="PackedScene" uid="uid://dnpqmw3bbd55j" path="res://Main/Scenes/gun.tscn" id="3_urjqg"]
+[ext_resource type="PackedScene" uid="uid://blhdiikkx7dp6" path="res://Main/Scenes/terrrain.tscn" id="4_6drdo"]
 [ext_resource type="Script" path="res://Main/Scenes/spawner.gd" id="4_xc0je"]
 [ext_resource type="PackedScene" uid="uid://cb7tseclovjt3" path="res://Main/Scenes/bullet.tscn" id="5_eiv2m"]
-[ext_resource type="Texture2D" uid="uid://521sywnex1y1" path="res://Assets/2D/realistic-sniper-crosshair-with-lines/SNIPER_LOOK_FINDER_Mesa_de_trabajo_1.png" id="5_mu2fn"]
+[ext_resource type="Texture2D" uid="uid://bk26xjjb6h54w" path="res://Assets/2D/realistic-sniper-crosshair-with-lines/SNIPER_LOOK_FINDER_Mesa_de_trabajo_1.png" id="5_mu2fn"]
 [ext_resource type="Texture2D" uid="uid://c5dr21mh63ior" path="res://Assets/2D/CrossHair.png" id="6_p8xw0"]
 [ext_resource type="StyleBox" uid="uid://d25p3uasehu11" path="res://Main/Scenes/button.tres" id="6_rcxxi"]
 [ext_resource type="StyleBox" uid="uid://cctk8v2idfyi4" path="res://Main/Scenes/button_pressed.tres" id="7_g4jl5"]
@@ -398,7 +399,7 @@ transform = Transform3D(50.74, 0, 0, 0, 50.74, 0, 0, 0, 50.74, -71.426, -34.8553
 visible = false
 
 [node name="Building" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(3.45629, 0, 0, 0, 3.45629, 0, 0, 0, 3.45629, 0, 0, 0)
+transform = Transform3D(3.45629, 0, 0, 0, 3.45629, 0, 0, 0, 3.45629, -1.16278, 3.4, 0)
 layers = 2
 mesh = SubResource("ArrayMesh_vmc6c")
 skeleton = NodePath("")
@@ -498,11 +499,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69441, 0.0546861, -0.64282
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.752226, 0.0546861, -0.642829)
 
 [node name="Marker3D" type="Marker3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(3.45, 0, 0, 0, 3.45, 0, 0, 0, 3.45, 0, 10.795, 0)
+transform = Transform3D(3.45, 0, 0, 0, 3.45, 0, 0, 0, 3.45, -1.11765, 10.795, 0)
 script = ExtResource("1_xjy3m")
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/Marker3D"]
-transform = Transform3D(0.289855, 0, 0, 0, 0.289855, 0, 0, 0, 0.289855, -0.352467, 0, 3.22321)
+transform = Transform3D(0.289855, 0, 0, 0, 0.289855, 0, 0, 0, 0.289855, -0.0475654, 0, 3.22321)
 cull_mask = 1048570
 current = true
 
@@ -516,6 +517,11 @@ transform = Transform3D(0.977944, -0.0085344, 1.70996e-07, 0.00853439, 0.977945,
 script = ExtResource("4_xc0je")
 
 [node name="Timer" type="Timer" parent="SubViewportContainer/SubViewport/Spawner"]
+
+[node name="Background" type="Node3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="terrrain" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_6drdo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.7198, 73.3053)
 
 [node name="Sniper ui" type="Node2D" parent="SubViewportContainer"]
 
@@ -542,8 +548,8 @@ action = "snipe"
 [node name="Button" type="Button" parent="SubViewportContainer/Sniper ui"]
 offset_left = 19.2758
 offset_top = 111.686
-offset_right = 27.2758
-offset_bottom = 119.686
+offset_right = 29.2758
+offset_bottom = 121.686
 scale = Vector2(3.534, 4.785)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_3lnwi")
 theme_override_styles/hover = ExtResource("6_rcxxi")
@@ -553,8 +559,8 @@ theme_override_styles/normal = ExtResource("6_rcxxi")
 [node name="Button2" type="Button" parent="SubViewportContainer/Sniper ui"]
 offset_left = 19.2758
 offset_top = 179.876
-offset_right = 27.2758
-offset_bottom = 187.876
+offset_right = 29.2758
+offset_bottom = 189.876
 scale = Vector2(3.534, 4.785)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_3lnwi")
 theme_override_styles/hover = ExtResource("8_b85qf")
