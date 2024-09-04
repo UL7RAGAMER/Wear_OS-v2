@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://e1siqpqhltgq"]
 
-[ext_resource type="Script" path="res://Main/Scenes/screen_sleep.gd" id="1_rpeal"]
+[ext_resource type="Script" path="res://Main/Scripts/screen_sleep.gd" id="1_rpeal"]
 
 [node name="ScreenSleep" type="Node2D"]
 script = ExtResource("1_rpeal")

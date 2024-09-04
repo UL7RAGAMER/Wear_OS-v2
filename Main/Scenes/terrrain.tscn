@@ -1,37 +1,33 @@
-[gd_scene load_steps=10 format=3 uid="uid://blhdiikkx7dp6"]
+[gd_scene load_steps=12 format=3 uid="uid://blhdiikkx7dp6"]
 
-[ext_resource type="Script" path="res://Main/Scenes/terrrain.gd" id="1_ewhiv"]
-[ext_resource type="Shader" path="res://Main/Scenes/terrrain.gdshader" id="3_cvhtl"]
-[ext_resource type="Texture2D" uid="uid://cjc0521qlma0y" path="res://Assets/2D/asd.png" id="3_kwj5j"]
-
-[sub_resource type="Gradient" id="Gradient_mtj10"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0.410667, 0.56, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_mmkhw"]
-gradient = SubResource("Gradient_mtj10")
-
-[sub_resource type="Gradient" id="Gradient_hjdkk"]
-offsets = PackedFloat32Array(0.625532)
-colors = PackedColorArray(0.59, 0.304833, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ho5in"]
-gradient = SubResource("Gradient_hjdkk")
+[ext_resource type="Script" path="res://Main/Scripts/terrrain.gd" id="1_ewhiv"]
+[ext_resource type="Shader" path="res://shader/terrrain.gdshader" id="3_cvhtl"]
+[ext_resource type="Texture2D" uid="uid://rnil2k56oc0n" path="res://Main/Tres/noise.tres" id="3_sj8bg"]
+[ext_resource type="Texture2D" uid="uid://cfalcobf5ms5i" path="res://Assets/2D/Grass001_1K-PNG/packed_albedo_height.png" id="3_ya7ik"]
+[ext_resource type="Texture2D" uid="uid://b8g8q6ntoi2da" path="res://Assets/2D/Grass001_1K-PNG/Grass_005_Normal.jpg" id="4_ijca2"]
+[ext_resource type="Texture2D" uid="uid://cjusj0walk3yr" path="res://Assets/2D/Grass001_1K-PNG/Grass_005_Roughness.jpg" id="5_sltdm"]
+[ext_resource type="Texture2D" uid="uid://d3t23r5ery36q" path="res://Assets/2D/Grass001_1K-PNG/Concrete_Muddy_001_BaseColor.jpg" id="6_dr0fr"]
+[ext_resource type="Texture2D" uid="uid://by38rt2l7xbfm" path="res://Assets/2D/Grass001_1K-PNG/Concrete_Muddy_001_Roughness.jpg" id="7_sexty"]
+[ext_resource type="Texture2D" uid="uid://dfaf30s0sbiw3" path="res://Assets/2D/Grass001_1K-PNG/Concrete_Muddy_001_Normal.jpg" id="8_y8odn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c7ycj"]
 render_priority = 0
 shader = ExtResource("3_cvhtl")
-shader_parameter/displacement_strength = 2.19
-shader_parameter/noise_texture = ExtResource("3_kwj5j")
-shader_parameter/normal_map = ExtResource("3_kwj5j")
-shader_parameter/low_color_texture = SubResource("GradientTexture1D_ho5in")
-shader_parameter/high_color_texture = SubResource("GradientTexture1D_mmkhw")
+shader_parameter/displacement_strength = 2.145
+shader_parameter/noise_texture = ExtResource("3_sj8bg")
+shader_parameter/normal_map = ExtResource("3_sj8bg")
+shader_parameter/low_color_texture = ExtResource("6_dr0fr")
+shader_parameter/high_color_texture = ExtResource("3_ya7ik")
+shader_parameter/low_normal_texture = ExtResource("7_sexty")
+shader_parameter/high_normal_texture = ExtResource("4_ijca2")
+shader_parameter/low_roughness_texture = ExtResource("8_y8odn")
+shader_parameter/high_roughness_texture = ExtResource("5_sltdm")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wwpju"]
 material = SubResource("ShaderMaterial_c7ycj")
 size = Vector2(10, 10)
-subdivide_width = 500
-subdivide_depth = 500
+subdivide_width = 100
+subdivide_depth = 100
 
 [node name="terrrain" type="Node3D"]
 script = ExtResource("1_ewhiv")
@@ -43,10 +39,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21, 0)
 transform = Transform3D(1, 0, 0, 0, 0.948821, 0.315815, 0, -0.315815, 0.948821, 0, 1, 3)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(23.813, 0, 0, 0, 23.813, 0, 0, 0, 23.813, -14.252, 9.181, -64.031)
+transform = Transform3D(23.813, 0, 0, 0, 23.813, 0, 0, 0, 23.813, -14.252, -141.443, -64.031)
+layers = 2
 mesh = SubResource("PlaneMesh_wwpju")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.998767, 0.0496342, 0, -0.0496342, 0.998767, -9.1982, 81.3984, -332.893)
+transform = Transform3D(-0.0883729, -0.0494401, 0.99486, -0.996087, 0.00438633, -0.088264, 1.14327e-10, -0.998767, -0.0496343, 24.457, -89.9094, -96.3324)
 light_energy = 31.985
 spot_range = 142.44

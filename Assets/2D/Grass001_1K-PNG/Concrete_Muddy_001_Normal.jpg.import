@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhqrtv631cuww"
-path.s3tc="res://.godot/imported/Grass001_1K-PNG_Color.png-99da1ae75d49d07d9988fef51df121f3.s3tc.ctex"
-path.etc2="res://.godot/imported/Grass001_1K-PNG_Color.png-99da1ae75d49d07d9988fef51df121f3.etc2.ctex"
+uid="uid://dfaf30s0sbiw3"
+path.s3tc="res://.godot/imported/Concrete_Muddy_001_Normal.jpg-824ca088cb7b8ae6b040bf7e6909ec32.s3tc.ctex"
+path.etc2="res://.godot/imported/Concrete_Muddy_001_Normal.jpg-824ca088cb7b8ae6b040bf7e6909ec32.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/2D/Grass001_1K-PNG/Grass001_1K-PNG_Color.png"
-dest_files=["res://.godot/imported/Grass001_1K-PNG_Color.png-99da1ae75d49d07d9988fef51df121f3.s3tc.ctex", "res://.godot/imported/Grass001_1K-PNG_Color.png-99da1ae75d49d07d9988fef51df121f3.etc2.ctex"]
+source_file="res://Assets/2D/Grass001_1K-PNG/Concrete_Muddy_001_Normal.jpg"
+dest_files=["res://.godot/imported/Concrete_Muddy_001_Normal.jpg-824ca088cb7b8ae6b040bf7e6909ec32.s3tc.ctex", "res://.godot/imported/Concrete_Muddy_001_Normal.jpg-824ca088cb7b8ae6b040bf7e6909ec32.etc2.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1

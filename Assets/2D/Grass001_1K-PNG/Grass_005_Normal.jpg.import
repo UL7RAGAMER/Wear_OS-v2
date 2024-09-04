@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhqrtv631cuww"
-path.s3tc="res://.godot/imported/Grass001_1K-PNG_Color.png-99da1ae75d49d07d9988fef51df121f3.s3tc.ctex"
-path.etc2="res://.godot/imported/Grass001_1K-PNG_Color.png-99da1ae75d49d07d9988fef51df121f3.etc2.ctex"
+uid="uid://b8g8q6ntoi2da"
+path.s3tc="res://.godot/imported/Grass_005_Normal.jpg-67e3e5af89adb9a8495d780f548c0233.s3tc.ctex"
+path.etc2="res://.godot/imported/Grass_005_Normal.jpg-67e3e5af89adb9a8495d780f548c0233.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/2D/Grass001_1K-PNG/Grass001_1K-PNG_Color.png"
-dest_files=["res://.godot/imported/Grass001_1K-PNG_Color.png-99da1ae75d49d07d9988fef51df121f3.s3tc.ctex", "res://.godot/imported/Grass001_1K-PNG_Color.png-99da1ae75d49d07d9988fef51df121f3.etc2.ctex"]
+source_file="res://Assets/2D/Grass001_1K-PNG/Grass_005_Normal.jpg"
+dest_files=["res://.godot/imported/Grass_005_Normal.jpg-67e3e5af89adb9a8495d780f548c0233.s3tc.ctex", "res://.godot/imported/Grass_005_Normal.jpg-67e3e5af89adb9a8495d780f548c0233.etc2.ctex"]
 
 [params]
 

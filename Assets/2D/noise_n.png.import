@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhqrtv631cuww"
-path.s3tc="res://.godot/imported/Grass001_1K-PNG_Color.png-99da1ae75d49d07d9988fef51df121f3.s3tc.ctex"
-path.etc2="res://.godot/imported/Grass001_1K-PNG_Color.png-99da1ae75d49d07d9988fef51df121f3.etc2.ctex"
+uid="uid://c2yxhisxik5xa"
+path.s3tc="res://.godot/imported/noise_n.png-dc8090d593fc251b724aca7d4e00d88e.s3tc.ctex"
+path.etc2="res://.godot/imported/noise_n.png-dc8090d593fc251b724aca7d4e00d88e.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/2D/Grass001_1K-PNG/Grass001_1K-PNG_Color.png"
-dest_files=["res://.godot/imported/Grass001_1K-PNG_Color.png-99da1ae75d49d07d9988fef51df121f3.s3tc.ctex", "res://.godot/imported/Grass001_1K-PNG_Color.png-99da1ae75d49d07d9988fef51df121f3.etc2.ctex"]
+source_file="res://Assets/2D/noise_n.png"
+dest_files=["res://.godot/imported/noise_n.png-dc8090d593fc251b724aca7d4e00d88e.s3tc.ctex", "res://.godot/imported/noise_n.png-dc8090d593fc251b724aca7d4e00d88e.etc2.ctex"]
 
 [params]
 

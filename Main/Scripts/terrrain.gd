@@ -1,4 +1,4 @@
-extends Node2D
+extends Node3D
 
 const source_folder_path = "res://Main/Scenes/"
 const destination_folder_path = "res://Main/"

@@ -5,18 +5,18 @@
 [ext_resource type="Script" path="res://Main/Scripts/gun.gd" id="3_ew13m"]
 [ext_resource type="PackedScene" uid="uid://dnpqmw3bbd55j" path="res://Main/Scenes/gun.tscn" id="3_urjqg"]
 [ext_resource type="PackedScene" uid="uid://blhdiikkx7dp6" path="res://Main/Scenes/terrrain.tscn" id="4_6drdo"]
-[ext_resource type="Script" path="res://Main/Scenes/spawner.gd" id="4_xc0je"]
+[ext_resource type="Script" path="res://Main/Scripts/spawner.gd" id="4_xc0je"]
 [ext_resource type="PackedScene" uid="uid://cb7tseclovjt3" path="res://Main/Scenes/bullet.tscn" id="5_eiv2m"]
 [ext_resource type="Texture2D" uid="uid://bk26xjjb6h54w" path="res://Assets/2D/realistic-sniper-crosshair-with-lines/SNIPER_LOOK_FINDER_Mesa_de_trabajo_1.png" id="5_mu2fn"]
 [ext_resource type="Texture2D" uid="uid://c5dr21mh63ior" path="res://Assets/2D/CrossHair.png" id="6_p8xw0"]
-[ext_resource type="StyleBox" uid="uid://d25p3uasehu11" path="res://Main/Scenes/button.tres" id="6_rcxxi"]
-[ext_resource type="StyleBox" uid="uid://cctk8v2idfyi4" path="res://Main/Scenes/button_pressed.tres" id="7_g4jl5"]
-[ext_resource type="StyleBox" uid="uid://bm5virqx05bvm" path="res://Main/Scenes/button_pressed2.tres" id="7_sujni"]
+[ext_resource type="StyleBox" uid="uid://d25p3uasehu11" path="res://Main/Tres/button.tres" id="6_rcxxi"]
+[ext_resource type="StyleBox" uid="uid://cctk8v2idfyi4" path="res://Main/Tres/button_pressed.tres" id="7_g4jl5"]
+[ext_resource type="StyleBox" uid="uid://bm5virqx05bvm" path="res://Main/Tres/button_pressed2.tres" id="7_sujni"]
 [ext_resource type="Texture2D" uid="uid://b5vey443iaq0j" path="res://Assets/2D/panorama_sky.jpg" id="7_y7ybx"]
-[ext_resource type="StyleBox" uid="uid://bfadin3ptyici" path="res://Main/Scenes/button2.tres" id="8_b85qf"]
+[ext_resource type="StyleBox" uid="uid://bfadin3ptyici" path="res://Main/Tres/button2.tres" id="8_b85qf"]
 [ext_resource type="Texture2D" uid="uid://cgl8qo2moxcs8" path="res://Assets/2D/ammo_empty.png" id="9_84k6i"]
 [ext_resource type="Texture2D" uid="uid://dcjmrsyo1swlr" path="res://Assets/2D/ammo.png" id="10_mpran"]
-[ext_resource type="Script" path="res://Main/Scenes/marker_3d.gd" id="10_qh2ev"]
+[ext_resource type="Script" path="res://Main/Scripts/marker_3d.gd" id="10_qh2ev"]
 [ext_resource type="Script" path="res://Main/Scenes/score.gd" id="13_hrl81"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qwr61"]
@@ -521,7 +521,7 @@ script = ExtResource("4_xc0je")
 [node name="Background" type="Node3D" parent="SubViewportContainer/SubViewport"]
 
 [node name="terrrain" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_6drdo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.7198, 73.3053)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.195, 119.798, 29.818)
 
 [node name="Sniper ui" type="Node2D" parent="SubViewportContainer"]
 
@@ -621,6 +621,9 @@ near = 0.001
 unique_name_in_owner = true
 transform = Transform3D(-0.0419681, 0, 1.06397e-07, 0, 0.041968, 0, -1.06397e-07, 0, -0.0419681, -0.252, -0.104, 9.417)
 script = ExtResource("3_ew13m")
+
+[node name="group1_001" parent="SubViewportContainer/SubViewport2/Marker3D/Gun/Operator valorent4" index="1"]
+transform = Transform3D(0.00998808, 0.000487999, -2.13311e-11, 0, -4.37114e-10, -0.01, -0.000487999, 0.00998808, -4.36593e-10, 0, 0, 0)
 
 [node name="Mag_002" parent="SubViewportContainer/SubViewport2/Marker3D/Gun/Operator valorent4/group1_001" index="2"]
 transform = Transform3D(99.9995, -0.155819, 0.291039, -0.311043, -14.9324, 98.8784, -0.110613, -98.8784, -14.9329, -22.0441, -304.993, 46.6268)
