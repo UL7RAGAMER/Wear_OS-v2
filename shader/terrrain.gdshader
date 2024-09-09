@@ -17,7 +17,7 @@ varying vec3 world_normal; // Pass normal from vertex to fragment shader
 
 void vertex() {
     // Get the UV coordinates of the current vertex
-    vec2 uv = UV;
+    vec2 uv = UV * 1.0;
 
     // Sample the noise texture using the UV coordinates
     float noise_value = texture(noise_texture, uv).r;
@@ -34,7 +34,7 @@ void vertex() {
 
 void fragment() {
     // Get the UV coordinates of the current fragment
-    vec2 uv = UV;
+    vec2 uv = UV * 1.0;
 	
     // Sample the noise texture to get the height value
     float height = texture(noise_texture, uv).r;
@@ -43,8 +43,8 @@ void fragment() {
     height = clamp(height * displacement_strength, 0.0, 1.0);
 
     // Sample the low and high color textures
-    vec3 low_color = texture(low_color_texture, uv).rgb;
-    vec3 high_color = texture(high_color_texture, uv).rgb;
+    vec3 low_color = texture(low_color_texture, uv* 2.0).rgb;
+    vec3 high_color = texture(high_color_texture, uv* 5.0).rgb;
 
     // Interpolate between the low and high colors based on height
     vec3 color = mix(low_color, high_color, height);
