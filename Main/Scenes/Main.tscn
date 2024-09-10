@@ -1,11 +1,13 @@
-[gd_scene load_steps=41 format=4 uid="uid://j86dvdyviohc"]
+[gd_scene load_steps=44 format=4 uid="uid://j86dvdyviohc"]
 
 [ext_resource type="Script" path="res://Main/Scripts/camera_work.gd" id="1_xjy3m"]
 [ext_resource type="Script" path="res://Main/Scripts/camera_2d.gd" id="3_e0ffb"]
 [ext_resource type="Script" path="res://Main/Scripts/gun.gd" id="3_ew13m"]
 [ext_resource type="PackedScene" uid="uid://dnpqmw3bbd55j" path="res://Main/Scenes/gun.tscn" id="3_urjqg"]
-[ext_resource type="PackedScene" uid="uid://blhdiikkx7dp6" path="res://Main/Scenes/terrrain.tscn" id="4_6drdo"]
+[ext_resource type="Script" path="res://Main/Scripts/terrrain.gd" id="4_wpvkf"]
 [ext_resource type="Script" path="res://Main/Scripts/spawner.gd" id="4_xc0je"]
+[ext_resource type="Material" uid="uid://rf3cw4jlmpur" path="res://Main/Scenes/terrrain_shader.tres" id="5_72c5s"]
+[ext_resource type="Script" path="res://Main/Scenes/directional_light_3d.gd" id="5_cbecj"]
 [ext_resource type="PackedScene" uid="uid://cb7tseclovjt3" path="res://Main/Scenes/bullet.tscn" id="5_eiv2m"]
 [ext_resource type="Texture2D" uid="uid://bk26xjjb6h54w" path="res://Assets/2D/realistic-sniper-crosshair-with-lines/SNIPER_LOOK_FINDER_Mesa_de_trabajo_1.png" id="5_mu2fn"]
 [ext_resource type="Texture2D" uid="uid://c5dr21mh63ior" path="res://Assets/2D/CrossHair.png" id="6_p8xw0"]
@@ -124,6 +126,14 @@ data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_s3iax"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wwpju"]
+lightmap_size_hint = Vector2i(102, 102)
+material = ExtResource("5_72c5s")
+add_uv2 = true
+size = Vector2(20, 20)
+subdivide_width = 100
+subdivide_depth = 100
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eyrus"]
 
@@ -520,8 +530,22 @@ script = ExtResource("4_xc0je")
 
 [node name="Background" type="Node3D" parent="SubViewportContainer/SubViewport"]
 
-[node name="terrrain" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_6drdo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.195, 119.798, 29.818)
+[node name="terrrain" type="Node3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.5529, -19.0164, -37.9451)
+script = ExtResource("4_wpvkf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/terrrain"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.74846e-07, 0, 1.74845e-07, 1, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/terrrain"]
+transform = Transform3D(23.813, 0, 0, 0, 23.813, 0, 0, 0, 23.813, -0.081, 0.035, 0.521)
+layers = 2
+mesh = SubResource("PlaneMesh_wwpju")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0)
+script = ExtResource("5_cbecj")
 
 [node name="Sniper ui" type="Node2D" parent="SubViewportContainer"]
 
@@ -643,7 +667,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 6
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 141
-text = "145"
+text = "142"
 
 [node name="Label2" type="Label" parent="."]
 visible = false

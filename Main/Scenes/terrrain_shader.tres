@@ -12,7 +12,7 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_u8bac")
-shader_parameter/displacement_strength = 2.145
+shader_parameter/displacement_strength = 3.234
 shader_parameter/noise_texture = ExtResource("8_c2uto")
 shader_parameter/normal_map = ExtResource("8_c2uto")
 shader_parameter/low_color_texture = ExtResource("5_dqx60")

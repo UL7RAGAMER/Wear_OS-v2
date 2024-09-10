@@ -3,7 +3,7 @@
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_wwqsu"]
 noise_type = 0
 frequency = 0.0221
-offset = Vector3(-47.4, -45.86, 138.72)
+offset = Vector3(171.15, -45.86, 138.72)
 metadata/_preview_in_3d_space_ = true
 
 [resource]

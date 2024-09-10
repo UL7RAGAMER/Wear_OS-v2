@@ -3,5 +3,9 @@
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_wwqsu"]
 
 [resource]
+width = 100
+height = 100
 invert = true
+as_normal_map = true
+bump_strength = 447.0
 noise = SubResource("FastNoiseLite_wwqsu")
