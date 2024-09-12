@@ -15,10 +15,11 @@ subdivide_depth = 100
 script = ExtResource("1_ewhiv")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.969872, -0.0364291, 0.240876, 0, 0.988756, 0.149535, -0.243615, 0.14503, -0.958967, 0, 0, 0)
+transform = Transform3D(-0.745552, 0.650894, 0.143139, 0.662249, 0.747636, 0.0496669, -0.0746876, 0.131823, -0.988456, 0, 0, 0)
 shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(23.813, 0, 0, 0, 23.813, 0, 0, 0, 23.813, -0.081, 0.035, 0.521)
+transform = Transform3D(-23.778, -1.29072, 0.0312066, 0, 0.575572, 23.806, -1.2911, 23.771, -0.574726, 0, 0, 0)
 layers = 2
+gi_mode = 2
 mesh = SubResource("PlaneMesh_wwpju")
