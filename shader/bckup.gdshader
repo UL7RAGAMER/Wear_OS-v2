@@ -29,8 +29,8 @@ void vertex() {
     VERTEX += displacement;
 
     // Pass normal and world position
-    world_normal = normalize(MODEL_MATRIX * vec4(NORMAL, 0.0)).xyz;
-    world_position = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+    world_normal = normalize(MODELVIEW_MATRIX * vec4(NORMAL, 0.0)).xyz;
+    world_position = (MODELVIEW_MATRIX * vec4(VERTEX, 1.0)).xyz;
 }
 
 void fragment() {
@@ -66,10 +66,21 @@ void fragment() {
     ROUGHNESS = final_roughness;
 }
 void light() {
+    // Transform the light direction from world space to tangent space
+    vec3 light_direction = normalize((LIGHT - world_position));
+	 float height = texture(noise_texture, uv).r;
+    float biased_height = pow(height, 0.8);
+    vec3 color = mix(low_color, high_color, biased_height);
 
-	vec3 L = TBN * LIGHT; // from view to tangent space
+    // Interpolated normal calculation
+    vec3 low_normal = texture(low_normal_texture, uv * 6.0).rgb * 2.0 - 1.0;
+    vec3 high_normal = texture(high_normal_texture, uv * 6.0).rgb * 2.0 - 1.0;
+	vec3 normal_in_tangent_space = mix(low_normal, high_normal, biased_height);
+	vec3 interpolated_normal = normalize(TANGENT * normal_in_tangent_space.x + BINORMAL * normal_in_tangent_space.y + NORMAL * normal_in_tangent_space.z);
+	NORMAL
+    // Sample the normal map (already in tangent space)
 
-	float NdotL = max(dot(NORMAL, L), 0.0);
-
-	DIFFUSE_LIGHT += NdotL * ATTENUATION * ALBEDO;
+    // Diffuse lighting calculation using Lambert's cosine law
+    // Apply diffuse lighting (with control over intensity)
+    DIFFUSE_LIGHT += ATTENUATION * ALBEDO ; // Divieding by 10.0 is very strong, consider using a variable
 }

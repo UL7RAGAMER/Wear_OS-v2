@@ -1,24 +1,20 @@
-[gd_resource type="ShaderMaterial" load_steps=10 format=3 uid="uid://rf3cw4jlmpur"]
+[gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://rf3cw4jlmpur"]
 
 [ext_resource type="Shader" path="res://shader/terrrain.gdshader" id="1_u8bac"]
-[ext_resource type="Texture2D" uid="uid://cfalcobf5ms5i" path="res://Assets/2D/Grass001_1K-PNG/packed_albedo_height.png" id="2_0cnoc"]
-[ext_resource type="Texture2D" uid="uid://b8g8q6ntoi2da" path="res://Assets/2D/Grass001_1K-PNG/Grass_005_Normal.jpg" id="3_kw6gv"]
-[ext_resource type="Texture2D" uid="uid://cjusj0walk3yr" path="res://Assets/2D/Grass001_1K-PNG/Grass_005_Roughness.jpg" id="4_4fo1q"]
-[ext_resource type="Texture2D" uid="uid://d3t23r5ery36q" path="res://Assets/2D/Grass001_1K-PNG/Concrete_Muddy_001_BaseColor.jpg" id="5_dqx60"]
-[ext_resource type="Texture2D" uid="uid://by38rt2l7xbfm" path="res://Assets/2D/Grass001_1K-PNG/Concrete_Muddy_001_Roughness.jpg" id="6_uu2vw"]
-[ext_resource type="Texture2D" uid="uid://dfaf30s0sbiw3" path="res://Assets/2D/Grass001_1K-PNG/Concrete_Muddy_001_Normal.jpg" id="7_wojo3"]
+[ext_resource type="Texture2D" uid="uid://cfalcobf5ms5i" path="res://Assets/2D/Grass001_1K-PNG/packed_albedo_height.png" id="2_3ynyd"]
+[ext_resource type="Texture2D" uid="uid://kgo686yxkbfw" path="res://Main/Tres/noise2.tres" id="3_po0co"]
+[ext_resource type="Texture2D" uid="uid://c8ps2u31447uo" path="res://Assets/2D/Grass001_1K-PNG/packed_normal_roughness.png" id="3_vfscq"]
+[ext_resource type="Texture2D" uid="uid://d3t23r5ery36q" path="res://Assets/2D/Grass001_1K-PNG/Concrete_Muddy_001_BaseColor.jpg" id="4_yd2yf"]
+[ext_resource type="Texture2D" uid="uid://dfaf30s0sbiw3" path="res://Assets/2D/Grass001_1K-PNG/Concrete_Muddy_001_Normal.jpg" id="5_uhnup"]
 [ext_resource type="Texture2D" uid="uid://rnil2k56oc0n" path="res://Main/Tres/noise.tres" id="8_c2uto"]
-[ext_resource type="Texture2D" uid="uid://dj0lgrxpeufmc" path="res://Main/Tres/noise (2).tres" id="9_bxq0n"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_u8bac")
-shader_parameter/displacement_strength = 3.234
-shader_parameter/noise_texture = ExtResource("8_c2uto")
-shader_parameter/normal_map = ExtResource("9_bxq0n")
-shader_parameter/low_color_texture = ExtResource("5_dqx60")
-shader_parameter/high_color_texture = ExtResource("2_0cnoc")
-shader_parameter/low_normal_texture = ExtResource("6_uu2vw")
-shader_parameter/high_normal_texture = ExtResource("3_kw6gv")
-shader_parameter/low_roughness_texture = ExtResource("7_wojo3")
-shader_parameter/high_roughness_texture = ExtResource("4_4fo1q")
+shader_parameter/height_scale = 0.393
+shader_parameter/noise = ExtResource("8_c2uto")
+shader_parameter/normalmap = ExtResource("3_po0co")
+shader_parameter/low_color_texture = ExtResource("4_yd2yf")
+shader_parameter/high_color_texture = ExtResource("2_3ynyd")
+shader_parameter/low_normal_texture = ExtResource("5_uhnup")
+shader_parameter/high_normal_texture = ExtResource("3_vfscq")

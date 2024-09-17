@@ -4,10 +4,9 @@
 [ext_resource type="Material" uid="uid://rf3cw4jlmpur" path="res://Main/Scenes/terrrain_shader.tres" id="2_jpjc6"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wwpju"]
-lightmap_size_hint = Vector2i(102, 102)
+lightmap_size_hint = Vector2i(12, 12)
 material = ExtResource("2_jpjc6")
 add_uv2 = true
-size = Vector2(20, 20)
 subdivide_width = 100
 subdivide_depth = 100
 
@@ -15,11 +14,18 @@ subdivide_depth = 100
 script = ExtResource("1_ewhiv")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.745552, 0.650894, 0.143139, 0.662249, 0.747636, 0.0496669, -0.0746876, 0.131823, -0.988456, 0, 0, 0)
+transform = Transform3D(-0.660002, 0.176654, -0.7302, 0, 0.971961, 0.235142, 0.751264, 0.155194, -0.641496, 0, 0, 0)
 shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-23.778, -1.29072, 0.0312066, 0, 0.575572, 23.806, -1.2911, 23.771, -0.574726, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.831604, 0, 36.1255)
 layers = 2
 gi_mode = 2
 mesh = SubResource("PlaneMesh_wwpju")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.217207, 0.326133, 35.4458)
+visible = false
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.865966, 0.288851, -0.40825, 0.0294077, 0.785508, 0.618152, 0.499237, -0.547304, 0.671729, -127.398, 118.527, 65.9006)

@@ -1,13 +1,8 @@
 [gd_resource type="NoiseTexture2D" load_steps=2 format=3 uid="uid://rnil2k56oc0n"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_wwqsu"]
-noise_type = 0
-frequency = 0.0221
-offset = Vector3(171.15, -45.86, 138.72)
-metadata/_preview_in_3d_space_ = true
+[ext_resource type="FastNoiseLite" uid="uid://bn6sla36r3iic" path="res://new_fast_noise_lite.tres" id="1_dv7gl"]
 
 [resource]
-width = 100
-height = 100
-in_3d_space = true
-noise = SubResource("FastNoiseLite_wwqsu")
+seamless = true
+seamless_blend_skirt = 1.0
+noise = ExtResource("1_dv7gl")
