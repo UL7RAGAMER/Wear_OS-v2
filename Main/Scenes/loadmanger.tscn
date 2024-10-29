@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dshemlf4750ni"]
+
+[ext_resource type="Script" path="res://Main/Scenes/loadmanger.gd" id="1_ft8lk"]
+
+[node name="loadmanger" type="Node3D"]
+script = ExtResource("1_ft8lk")

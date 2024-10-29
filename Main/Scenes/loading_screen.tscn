@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://2vpnwasmxi6h"]
+
+[ext_resource type="FontFile" uid="uid://butrb2sdjujs4" path="res://Assets/ModernWarfare-OV7KP.ttf" id="1_1k8q0"]
+[ext_resource type="Script" path="res://Main/Scripts/camera_2d.gd" id="1_n1w23"]
+[ext_resource type="Texture2D" uid="uid://byhs4chdel3f7" path="res://Assets/568af6-call_of_duty_black_ops_3_activision_publishing_103670_3840x2160.png" id="3_oa4qr"]
+
+[node name="Loading_screen" type="Node2D"]
+
+[node name="568Af6-callOfDutyBlackOps3ActivisionPublishing1036703840x2160" type="Sprite2D" parent="."]
+position = Vector2(239, 254)
+scale = Vector2(0.157408, 0.157408)
+texture = ExtResource("3_oa4qr")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 236.0
+offset_top = 246.0
+offset_right = 240.0
+offset_bottom = 509.0
+scale = Vector2(0.097, 0.097)
+theme_override_fonts/font = ExtResource("1_1k8q0")
+theme_override_font_sizes/font_size = 324
+value = 10.1
+
+[node name="WearOS_Camera" type="Camera2D" parent="."]
+position = Vector2(239, 254)
+zoom = Vector2(1.32, 1.32)
+editor_draw_screen = false
+script = ExtResource("1_n1w23")

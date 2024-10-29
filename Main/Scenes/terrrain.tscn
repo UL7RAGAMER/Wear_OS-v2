@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://blhdiikkx7dp6"]
+
+[ext_resource type="Script" path="res://Main/Scripts/terrrain.gd" id="1_ewhiv"]
+[ext_resource type="Material" uid="uid://rf3cw4jlmpur" path="res://Main/Scenes/terrrain_shader.tres" id="2_jpjc6"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wwpju"]
+lightmap_size_hint = Vector2i(12, 12)
+material = ExtResource("2_jpjc6")
+add_uv2 = true
+subdivide_width = 40
+subdivide_depth = 40
+
+[node name="terrrain" type="Node3D"]
+script = ExtResource("1_ewhiv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.660002, 0.176654, -0.7302, 0, 0.971961, 0.235142, 0.751264, 0.155194, -0.641496, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(15.985, 0, 0, 0, 15.985, 0, 0, 0, 15.985, 0, 0, 0)
+layers = 2
+mesh = SubResource("PlaneMesh_wwpju")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.217207, 0.326133, 35.4458)
+visible = false
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.865966, 0.288851, -0.40825, 0.0294077, 0.785508, 0.618152, 0.499237, -0.547304, 0.671729, -127.398, 118.527, 65.9006)
