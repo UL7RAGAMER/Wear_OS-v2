@@ -29,5 +29,3 @@ func _process(delta: float) -> void:
 		get_tree().change_scene_to_packed(ResourceLoader.load_threaded_get(scene_to_load_path))
 		load_instance.queue_free()
 		
-	else:
-		print('F')

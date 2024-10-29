@@ -4,6 +4,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$VideoStreamPlayer.play()
 	pass # Replace with function body.
 
 
@@ -16,4 +17,9 @@ func _process(delta):
 
 func _on_button_pressed():
 	Loadmanger.load_scene("res://Main/Scenes/Main.tscn")
+	pass # Replace with function body.
+
+
+func _on_button_2_pressed() -> void:
+	get_tree().quit()
 	pass # Replace with function body.

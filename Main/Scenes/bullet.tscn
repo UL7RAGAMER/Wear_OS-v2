@@ -1,20 +1,20 @@
 [gd_scene load_steps=23 format=4 uid="uid://cb7tseclovjt3"]
 
 [ext_resource type="Script" path="res://Main/Scripts/bullet.gd" id="1_1qnd4"]
+[ext_resource type="Texture2D" uid="uid://b0lh2okgyn22a" path="res://Assets/3D/sniper_bullet_0.png" id="2_1gsxp"]
+[ext_resource type="Texture2D" uid="uid://cat04ian5tvld" path="res://Assets/3D/sniper_bullet_2.png" id="3_u2f4f"]
 [ext_resource type="Shader" path="res://GPUTrail-main/shaders/trail.gdshader" id="7_afyn6"]
 [ext_resource type="Shader" path="res://GPUTrail-main/shaders/trail_draw_pass.gdshader" id="8_vf6qk"]
 [ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://GPUTrail-main/defaults/texture.tres" id="9_uqyiw"]
 [ext_resource type="Texture2D" uid="uid://ct31fhxvcragr" path="res://GPUTrail-main/defaults/curve.tres" id="10_lg813"]
 [ext_resource type="Script" path="res://GPUTrail-main/GPUTrail3D.gd" id="11_4fhbr"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bxmnk"]
-
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k5e4n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gslon"]
 resource_name = "Material_Projetil"
 cull_mode = 2
-albedo_texture = SubResource("CompressedTexture2D_bxmnk")
+albedo_texture = ExtResource("2_1gsxp")
 metallic = 1.0
 metallic_specular = 1.0
 metallic_texture_channel = 2
@@ -55,13 +55,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6k1ip")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j0jj3"]
-
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5ev4k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wg8ea"]
 resource_name = "Material_Capsula"
-albedo_texture = SubResource("CompressedTexture2D_j0jj3")
+albedo_texture = ExtResource("3_u2f4f")
 metallic = 1.0
 roughness = 0.6
 normal_texture = SubResource("CompressedTexture2D_5ev4k")
@@ -115,7 +113,7 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("8_vf6qk")
 shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
-shader_parameter/flags = 44
+shader_parameter/flags = 4
 shader_parameter/tex = SubResource("GradientTexture1D_af54b")
 shader_parameter/color_ramp = ExtResource("9_uqyiw")
 shader_parameter/curve = ExtResource("10_lg813")
@@ -149,6 +147,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 2.89344e-15, 0, -2.89344e-15, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_e2fre")
 
 [node name="GPUTrail3D" type="GPUParticles3D" parent="Node3D"]
+layers = 2
 amount = 200
 lifetime = 200.0
 explosiveness = 1.0
